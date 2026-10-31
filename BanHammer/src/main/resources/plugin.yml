@@ -1,0 +1,17 @@
+name: BanHammer
+version: 1.0.0
+main: fr.banhammer.BanHammerPlugin
+api-version: '1.21.11'
+author: ChatGPT
+commands:
+  banhammer:
+    description: Obtient un Ban Hammer
+    usage: /banhammer
+    permission: banhammer.admin
+  debanhammer:
+    description: Obtient un Débannisseur ou sélectionne une cible bannie
+    usage: /debanhammer [joueur]
+    permission: banhammer.admin
+permissions:
+  banhammer.admin:
+    default: op
