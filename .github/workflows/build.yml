@@ -22,10 +22,10 @@ jobs:
           cache: maven
 
       - name: Build plugin
-        run: mvn clean package
+        run: mvn -f BanHammer/pom.xml clean packtage
 
       - name: Upload plugin
         uses: actions/upload-artifact@v4
         with:
           name: BanHammer-JAR
-          path: target/*.jar
+          path: BanHammer/target/*.jar
