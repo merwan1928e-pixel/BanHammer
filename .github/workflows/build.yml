@@ -1,0 +1,31 @@
+name: Build BanHammer
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build plugin
+        run: mvn clean package
+
+      - name: Upload plugin
+        uses: actions/upload-artifact@v4
+        with:
+          name: BanHammer-JAR
+          path: target/*.jar
